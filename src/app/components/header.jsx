@@ -6,8 +6,8 @@ import { SearchInput } from "./search-input"
 export function Header() {
     return (
         <TagHeader>
-<h1>Rick and Morty</h1>
-<SearchInput></SearchInput>
+            <h1>Rick and Morty</h1>
+            <SearchInput></SearchInput>
         </TagHeader>
     )
 }
