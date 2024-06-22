@@ -1,15 +1,19 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
+import Link from 'next/link';
 
 export function CharacterItem({ character }) {
     return (
-        <>
-            <CharacterBox key={character.id}>
-                <CharacterImage src={character.image} alt={character.name} />
-                <CharacterName>{character.name}</CharacterName>
-            </CharacterBox>
-        </>
-    )
+        <CharacterBox key={character.id}>
+            <Link href={`/character/${character.id}`} passHref>
+                <LinkCharacter >
+                    <CharacterImage src={character.image} alt={character.name} />
+                    <CharacterName>{character.name}</CharacterName>
+                </LinkCharacter>
+            </Link>
+        </CharacterBox>
+    );
 }
+
 const CharacterBox = styled.li`
   display: flex;
   flex-direction: column;
@@ -27,4 +31,9 @@ const CharacterImage = styled.img`
 const CharacterName = styled.span`
   margin-top: 10px;
   text-align: center;
+`;
+
+const LinkCharacter = styled.a`
+  text-decoration: none;
+  color: inherit;
 `;
