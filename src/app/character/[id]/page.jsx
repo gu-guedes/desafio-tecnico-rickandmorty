@@ -41,7 +41,7 @@ export default function CharacterDetailPage({ params }) {
         <CharacterDetails>
           <CharacterName>{character.name}</CharacterName>
           <CharacterInfo>Status: {character.status}</CharacterInfo>
-          <CharacterInfo>Species: {character.species}</CharacterInfo>ef
+          <CharacterInfo>Species: {character.species}</CharacterInfo>
           <CharacterInfo>Gender: {character.gender}</CharacterInfo>
           <CharacterInfo>Origin: {character.origin.name}</CharacterInfo>
         </CharacterDetails>

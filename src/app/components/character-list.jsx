@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CharacterItem } from './character-item';
+import { CharacterItem } from './character-item/character-item';
 
 export function CharacterList({ characters }) {
   return (

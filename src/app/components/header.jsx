@@ -1,12 +1,15 @@
 "use client";
 import { styled } from "styled-components";
-import { SearchInput } from "./search-input";
+import { SearchInput } from "./search-input/search-input";
+import { useContext } from "react";
+import { SearchContext } from "../context/search-context";
 
 export function Header() {
+    const { setSearchItem } = useContext(SearchContext)
   return (
     <TagHeader>
       <Title>Rick and Morty</Title>
-      <SearchInput />
+      <SearchInput setSearchItem={setSearchItem} />
     </TagHeader>
   );
 }

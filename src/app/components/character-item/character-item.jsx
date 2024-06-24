@@ -2,18 +2,20 @@ import React from 'react'
 import styled from 'styled-components';
 import Link from 'next/link';
 
+
 export function CharacterItem({ character }) {
   return (
-    <CharacterBox>
-      <Link href={`/character/${character.id}`} passHref>
-        <LinkCharacter>
-          <CharacterImage src={character.image} alt={character.name} />
-          <CharacterName>{character.name}</CharacterName>
-        </LinkCharacter>
-      </Link>
-    </CharacterBox>
+    <Link href={`/character/${character.id}`} passHref>
+      <CharacterBox>
+        <CharacterImage src={character.image} alt={character.name} />
+        <CharacterName>
+          {character.name}
+          </CharacterName>
+      </CharacterBox>
+    </Link>
   );
 };
+
 
 const CharacterBox = styled.div`
   background-color: #2c2c2c;
@@ -37,10 +39,8 @@ const CharacterImage = styled.img`
 const CharacterName = styled.h2`
   color: #bb86fc;
   margin: 10px 0;
+  text-decoration: none;
+  cursor: pointer
 `;
 
-const LinkCharacter = styled.a`
-  text-decoration: none;
-  color: inherit;
-`;
 

@@ -1,21 +1,30 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { CharacterList } from "./components/character-list";
 import styled, { createGlobalStyle } from "styled-components";
 import { getCharacters } from "./api/route";
+import { SearchContext } from "./context/search-context";
 
 export default function HomePage() {
+  const { searchItem } = useContext(SearchContext)
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
+  const [info, setInfo] = useState({})
+  const [noCharactersFound, setNoCharactersFound] = useState(false)
+  console.log('queroooo', noCharactersFound)
+
 
   useEffect(() => {
     const loadCharacters = async () => {
       try {
+        setNoCharactersFound(false)
         setLoading(true)
-        const data = await getCharacters(page)
-        setCharacters(data)
+        const { results, info } = await getCharacters(page, searchItem)
+        setCharacters(results)
+        setInfo(info)
       } catch (error) {
+        setNoCharactersFound(true)
         console.error('Error getting characters:', error)
       } finally {
         setLoading(false)
@@ -23,10 +32,13 @@ export default function HomePage() {
     };
 
     loadCharacters();
-  }, [page]); 
+  }, [page, searchItem]);
 
   const nextPage = () => {
-    setPage(prevPage => prevPage + 1)
+    if (info.next) {
+      setPage(prevPage => prevPage + 1)
+    }
+
   };
 
   const prevPage = () => {
@@ -41,12 +53,17 @@ export default function HomePage() {
     <Main>
       <GlobalStyle />
       <Title>Characters</Title>
-      <CharacterList characters={characters}></CharacterList>
-      <Pagination>
-        <Button onClick={prevPage} disabled={page === 1}>Previous</Button>
-        <PageIndicator>Page {page}</PageIndicator>
-        <Button onClick={nextPage}>Next</Button>
-      </Pagination>
+      {noCharactersFound ? (
+        <NotFoundMessage>No characters found with that name. Please use a different search term.</NotFoundMessage>
+      ) : (<>
+        <CharacterList characters={characters} />
+        <Pagination>
+          <Button onClick={prevPage} disabled={page === 1}>Previous</Button>
+          <PageIndicator>Page {page}</PageIndicator>
+          <Button onClick={nextPage} disabled={!info.next}>Next</Button>
+        </Pagination>
+        </>
+      )}
     </Main>
   );
 }
@@ -76,6 +93,10 @@ const Title = styled.h1`
 const LoadingMessage = styled.p`
   font-size: 1.5em;
   color: #bb86fc;
+`;
+const NotFoundMessage = styled.p`
+  font-size: 1.5em;
+  color: #ff5722; 
 `;
 
 const Pagination = styled.div`
