@@ -1,4 +1,3 @@
-
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -6,7 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 export function SearchInput() {
   return (
     <SearchContainer>
-      <StyledInput type="text" placeholder="Pesquisar..." />
+      <StyledInput type="text" placeholder="Search..." />
       <SearchIcon icon={faSearch} />
     </SearchContainer>
   );
@@ -22,7 +21,6 @@ const StyledInput = styled.input`
   border-radius: 10px;
   background-color: white;
   padding: 10px 15px 10px 40px; 
-  border: 1px solid #ccc;
   font-size: 16px;
 `;
 

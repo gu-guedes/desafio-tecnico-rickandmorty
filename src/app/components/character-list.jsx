@@ -1,24 +1,19 @@
-"use client";
-
-import styled from "styled-components";
-import { CharacterItem } from "./character-item";
+import styled from 'styled-components';
+import { CharacterItem } from './character-item';
 
 export function CharacterList({ characters }) {
   return (
-    <>
-      <CharacterListContainer>
-        {characters.map(character => (
-          <CharacterItem key={character.id} character={character}></CharacterItem>
-        ))}
-      </CharacterListContainer>
-    </>
+    <Grid>
+      {characters.map(character => (
+        <CharacterItem key={character.id} character={character} />
+      ))}
+    </Grid>
   );
-}
+};
 
-const CharacterListContainer = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px 160px;
-  justify-content: space-between
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
 `;
-
