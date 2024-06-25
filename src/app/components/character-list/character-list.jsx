@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { CharacterItem } from './character-item';
+import React from 'react';
+import { CharacterItem } from '../character-item/character-item';
 
 export default function CharacterList({ characters }) {
   return (

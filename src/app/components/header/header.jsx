@@ -1,8 +1,8 @@
 "use client";
 import { styled } from "styled-components";
-import { SearchInput } from "./search-input/search-input";
-import { useContext } from "react";
-import { SearchContext } from "../context/search-context";
+import { SearchInput } from "../search-input/search-input";
+import React, { useContext, useEffect } from "react";
+import { SearchContext } from "../../context/search-context";
 import Link from "next/link";
 
 export function Header() {
@@ -24,6 +24,7 @@ export function Header() {
 
 const TagHeader = styled.header`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 20px 160px;

@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect, useContext } from "react";
-import CharacterList from "./components/character-list";
+import React,{ useState, useEffect, useContext } from "react";
+import CharacterList from "./components/character-list/character-list";
 import styled, { createGlobalStyle } from "styled-components";
 import { getCharacters } from "./api/route";
 import { SearchContext } from "./context/search-context";
@@ -94,8 +94,7 @@ const Main = styled.main`
   margin: 0 auto;
   padding: 20px 160px;
   text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  
 `;
 
 const Title = styled.h1`

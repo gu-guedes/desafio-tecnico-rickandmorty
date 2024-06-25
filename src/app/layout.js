@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
-
-import "./globals.css";
-import { Header } from "./components/header"
+"use client"
+import './globals.css'
+import React from "react";
+import { Header } from "./components/header/header"
 import { SearchProvider } from "./context/search-context";
 
 export default function RootLayout({ children }) {
