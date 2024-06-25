@@ -1,19 +1,17 @@
 "use client";
 import { useState, useEffect, useContext } from "react";
-import { CharacterList } from "./components/character-list";
+import CharacterList from "./components/character-list";
 import styled, { createGlobalStyle } from "styled-components";
 import { getCharacters } from "./api/route";
 import { SearchContext } from "./context/search-context";
 
 export default function HomePage() {
-  const { searchItem } = useContext(SearchContext)
+  const { searchItem, page, setPage} = useContext(SearchContext)
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(1)
+ 
   const [info, setInfo] = useState({})
   const [noCharactersFound, setNoCharactersFound] = useState(false)
-  console.log('queroooo', noCharactersFound)
-
 
   useEffect(() => {
     const loadCharacters = async () => {
@@ -44,6 +42,13 @@ export default function HomePage() {
   const prevPage = () => {
     setPage(prevPage => Math.max(prevPage - 1, 1))
   };
+  const goToFirstPage = () => {
+    setPage(1);
+  };
+
+  const goToLastPage = () => {
+    setPage(info.pages);
+  };
 
   if (loading) {
     return <LoadingMessage>Loading...</LoadingMessage>
@@ -58,9 +63,19 @@ export default function HomePage() {
       ) : (<>
         <CharacterList characters={characters} />
         <Pagination>
-          <Button onClick={prevPage} disabled={page === 1}>Previous</Button>
-          <PageIndicator>Page {page}</PageIndicator>
-          <Button onClick={nextPage} disabled={!info.next}>Next</Button>
+        <Button onClick={goToFirstPage} disabled={page === 1}>
+              1
+            </Button>
+            <Button onClick={prevPage} disabled={page === 1}>
+            Previous
+            </Button>
+            <PageIndicator>{page}</PageIndicator>
+            <Button onClick={nextPage} disabled={!info.next}>
+              Next
+            </Button>
+            <Button onClick={goToLastPage} disabled={page === info.pages}>
+              {info.pages}
+            </Button>
         </Pagination>
         </>
       )}
@@ -81,7 +96,6 @@ const Main = styled.main`
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  
 `;
 
 const Title = styled.h1`

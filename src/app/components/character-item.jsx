@@ -17,7 +17,16 @@ export function CharacterItem({ character }) {
 };
 
 
+const CharacterName = styled.h2`
+  color: #bb86fc;
+  margin: 10px 0;
+  text-decoration: none;
+  cursor: pointer
+`;
+
+
 const CharacterBox = styled.div`
+  position: relative; /* Necessário para posicionamento do pseudo-elemento */
   background-color: #2c2c2c;
   border-radius: 8px;
   overflow: hidden;
@@ -28,6 +37,27 @@ const CharacterBox = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+
+  &::after {
+    content: 'show details';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido com opacidade */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s;
+  }
+
+  &:hover::after {
+    opacity: 1; /* Torna visível ao passar o mouse */
+  }
 `;
 
 const CharacterImage = styled.img`
@@ -36,11 +66,5 @@ const CharacterImage = styled.img`
   border-bottom: 2px solid #bb86fc;
 `;
 
-const CharacterName = styled.h2`
-  color: #bb86fc;
-  margin: 10px 0;
-  text-decoration: none;
-  cursor: pointer
-`;
 
 

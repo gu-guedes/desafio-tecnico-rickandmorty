@@ -3,13 +3,21 @@ import { styled } from "styled-components";
 import { SearchInput } from "./search-input/search-input";
 import { useContext } from "react";
 import { SearchContext } from "../context/search-context";
+import Link from "next/link";
 
 export function Header() {
-    const { setSearchItem } = useContext(SearchContext)
+    const { setSearchItem, resetSearch, searchItem } = useContext(SearchContext)
+
+    const handleTitleClick = () => {
+        resetSearch(); 
+      };
+
   return (
     <TagHeader>
-      <Title>Rick and Morty</Title>
-      <SearchInput setSearchItem={setSearchItem} />
+        <Link href={"/"} passHref>
+      <Title onClick={handleTitleClick}>Rick and Morty</Title>
+      </Link>
+      <SearchInput setSearchItem={setSearchItem} searchItem={searchItem}/>
     </TagHeader>
   );
 }

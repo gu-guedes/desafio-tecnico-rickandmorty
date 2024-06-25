@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CharacterItem } from './character-item/character-item';
+import { CharacterItem } from './character-item';
 
-export function CharacterList({ characters }) {
+export default function CharacterList({ characters }) {
   return (
     <Grid>
       {characters.map(character => (
