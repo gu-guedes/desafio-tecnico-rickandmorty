@@ -1,8 +1,8 @@
 ### RICK AND MORTY 
 
 Aplicação front-end com intuito de consumir API do rick and morty e trazer personagens e seus detalhes especificos:
-Link: desafio-tecnico-rickandmorty-ifyvmnwt3-guguedes-projects.vercel.app
-
+Link: [desafio-tecnico-rickandmorty-ifyvmnwt3-guguedes-projects.vercel.app
+](https://desafio-tecnico-rickandmorty.vercel.app/)
 ## Requisitos implementados:
 - listagem de todos os personagens 
 - filtragem por nome dos persongens pela barra de pesquisa
