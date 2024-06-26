@@ -24,5 +24,8 @@ Foram usadas as seguintes ferramentas e frameworks:
 ### `npm start`
 4- Por fim acesse http://localhost:3000 no seu navegador preferido (desde que não seja o Explorer).
 
+5- Caso queira rodar os testes
+### `npm test`
+
 
 
