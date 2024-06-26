@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { Grid } from './styles';
 import React from 'react';
 import { CharacterItem } from '../character-item/character-item';
 
@@ -12,9 +12,3 @@ export default function CharacterList({ characters }) {
   );
 };
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  padding: 20px;
-`;

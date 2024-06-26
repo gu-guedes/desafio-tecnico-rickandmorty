@@ -1,6 +1,11 @@
 
 :root {
   --border-radius: 12px;
+  --color-background: #1e1e1e;
+  --color-text: #bb86fc;
+  --color-background-secundary:#2c2c2c; 
+  --color-hover: #3700b3;
+  --color-disabled: #6200ea;
 }
 
 * {
@@ -17,4 +22,5 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: var(--color-background);
 }
