@@ -20,13 +20,14 @@ Foram usadas as seguintes ferramentas e frameworks:
 1- Clonar este repositório
 2- Instalar dependências
 ### `npm i`
-3- Build do projeto
+3- não esqueça de configurar a variavel de ambiente (.env.local)
+4- Build do projeto
 ### `npm run build`
-4- Após o build do projeto for concluido
+5- Após o build do projeto for concluido
 ### `npm start`
-4- Por fim acesse http://localhost:3000 no seu navegador preferido (desde que não seja o Explorer).
+6- Por fim acesse http://localhost:3000 no seu navegador preferido (desde que não seja o Explorer).
 
-5- Caso queira rodar os testes
+7- Caso queira rodar os testes
 ### `npm test`
 
 
