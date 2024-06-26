@@ -9,7 +9,6 @@ export default function HomePage() {
   const { searchItem, page, setPage} = useContext(SearchContext)
   const [characters, setCharacters] = useState([])
   const [loading, setLoading] = useState(true)
- 
   const [info, setInfo] = useState({})
   const [noCharactersFound, setNoCharactersFound] = useState(false)
 

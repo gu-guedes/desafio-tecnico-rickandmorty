@@ -16,6 +16,10 @@ export const Title = styled.h1`
 export const LoadingMessage = styled.p`
   font-size: 1.5em;
   color: var(--color-text);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const NotFoundMessage = styled.p`
   font-size: 1.5em;
