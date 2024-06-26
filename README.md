@@ -21,6 +21,7 @@ Foram usadas as seguintes ferramentas e frameworks:
 2- Instalar dependências
 ### `npm i`
 3- não esqueça de configurar a variavel de ambiente (.env.local)
+
 4- Build do projeto
 ### `npm run build`
 5- Após o build do projeto for concluido
